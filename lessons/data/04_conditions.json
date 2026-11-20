@@ -1,0 +1,56 @@
+{
+  "id": 4,
+  "title": "Making Choices",
+  "subtitle": "Teach your program to decide",
+  "emoji": "🔀",
+  "minutes": 7,
+  "xp": 80,
+  "accent": "#7c3aed",
+  "sections": [
+    {
+      "type": "text",
+      "content": "Real programs make **decisions**. *“IF it's raining, take an umbrella.”* 🌧️\n\nPython does this with **`if`**. If the condition is true, the indented code runs. If not, it's skipped."
+    },
+    {
+      "type": "example",
+      "label": "Run it, then try changing 16 to 12",
+      "code": "age = 16\nif age >= 16:\n    print('You can drive! 🚗')"
+    },
+    {
+      "type": "text",
+      "content": "Two things to notice:\n\n• The condition ends with a colon **`:`**\n• The line below is **indented** (4 spaces). Indentation is how Python knows what's *inside* the `if`.\n\nThe comparison signs:\n• `==` equal to  • `!=` not equal  • `>` greater  • `<` less  • `>=` / `<=` greater/less or equal\n\n⚠️ Use **two** equals `==` to compare. One `=` is for *making* variables!"
+    },
+    {
+      "type": "text",
+      "content": "Add **`else`** for a backup plan, and **`elif`** (“else if”) to check more options:"
+    },
+    {
+      "type": "example",
+      "label": "A full decision tree — try different scores",
+      "code": "score = 85\nif score >= 90:\n    print('Grade: A 🏆')\nelif score >= 80:\n    print('Grade: B 👍')\nelse:\n    print('Keep practicing! 💪')"
+    },
+    {
+      "type": "text",
+      "content": "Python checks each line top to bottom and runs the **first** one that's true, then skips the rest. Clean and predictable."
+    },
+    {
+      "type": "challenge",
+      "prompt": "Make an **age checker**. Create a variable `age = 16`. If age is 18 or more, print `'You are an adult'`. Otherwise (`else`), print `'You are a minor'`.",
+      "starter": "age = 16\n# Write your if/else below\n",
+      "hints": [
+        "Your condition is: if age >= 18:",
+        "Don't forget the colon : and to indent the print line with spaces. Add an else: block for the other case."
+      ],
+      "check": {
+        "description": "Use if/else on the age variable to print whether it's an adult or a minor.",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "probe", "expr": "age", "equals": 16, "message": "Start with age = 16" },
+          { "kind": "syntax_feature", "feature": "if_else", "message": "Use an if and an else" },
+          { "kind": "age_branches", "message": "Check ages below 18 and 18 or older correctly" }
+        ]
+      },
+      "solution": "age = 16\nif age >= 18:\n    print('You are an adult')\nelse:\n    print('You are a minor')"
+    }
+  ]
+}

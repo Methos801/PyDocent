@@ -1,0 +1,9 @@
+# Normalize line endings so Windows/macOS edits don't produce noisy diffs.
+* text=auto eol=lf
+
+# Binary assets stay binary.
+*.woff2 binary
+*.png binary
+*.ico binary
+*.zip binary
+*.exe binary

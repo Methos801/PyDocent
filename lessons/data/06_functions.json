@@ -1,0 +1,65 @@
+{
+  "id": 6,
+  "title": "Build Your Own Commands",
+  "subtitle": "Functions: reusable blocks of code",
+  "emoji": "🛠️",
+  "minutes": 8,
+  "xp": 100,
+  "accent": "#06b6d4",
+  "sections": [
+    {
+      "type": "text",
+      "content": "You've been *using* functions this whole time — `print()`, `input()`, `range()`. Now you'll **build your own**! 🛠️\n\nA **function** is a reusable block of code you give a name. Define it once, then *call* it as many times as you want."
+    },
+    {
+      "type": "example",
+      "label": "Define with 'def', then call it",
+      "code": "def say_hi():\n    print('Hi there!')\n    print('Welcome back!')\n\nsay_hi()\nsay_hi()"
+    },
+    {
+      "type": "text",
+      "content": "Breaking it down:\n\n• **`def say_hi():`** creates a function named `say_hi`\n• The **indented** lines are its body — the code it runs\n• **`say_hi()`** *calls* it (runs it). We called it twice → it ran twice!\n\nNotice you write the recipe once but can use it over and over. 🔁"
+    },
+    {
+      "type": "text",
+      "content": "Functions get way more useful when you pass them **information**. Values you hand in are called **parameters** (they go in the parentheses)."
+    },
+    {
+      "type": "example",
+      "label": "A parameter makes it flexible",
+      "code": "def greet(name):\n    print(f'Hello, {name}! 👋')\n\ngreet('Sam')\ngreet('Maria')\ngreet('Dad')"
+    },
+    {
+      "type": "text",
+      "content": "Same function, different results — because we passed a different `name` each time.\n\nFunctions can also **`return`** a value, handing an answer back to you so you can use it later:"
+    },
+    {
+      "type": "example",
+      "label": "return gives you an answer back",
+      "code": "def add(a, b):\n    return a + b\n\nresult = add(2, 3)\nprint(result)\nprint(add(10, 7))"
+    },
+    {
+      "type": "text",
+      "content": "💡 **`print` vs `return`:** `print` just *shows* something on screen. `return` *hands a value back* so your program can keep using it (like storing it in a variable). Big difference!"
+    },
+    {
+      "type": "challenge",
+      "prompt": "Write a function called **`double`** that takes one number and **returns** it times 2. Then print `double(5)`.\n\nThe output should be **10**.",
+      "starter": "# Define double(n) that returns n * 2\n\n# Then print the result of double(5)\n",
+      "hints": [
+        "Start with: def double(n): then on the next indented line: return n * 2",
+        "After the function, call it inside print: print(double(5))"
+      ],
+      "check": {
+        "description": "A function called double that RETURNS a number times 2, and print double(5).",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "probe", "expr": "double(5)", "equals": 10, "message": "double(5) gives back 10" },
+          { "kind": "probe", "expr": "double(3)", "equals": 6, "message": "double works for other numbers too (double(3) gives 6)" },
+          { "kind": "output_exact_line", "value": "10", "message": "Your program prints 10" }
+        ]
+      },
+      "solution": "def double(n):\n    return n * 2\n\nprint(double(5))"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": 1,
+  "title": "Hello, World!",
+  "subtitle": "Your very first Python program",
+  "emoji": "👋",
+  "minutes": 5,
+  "xp": 50,
+  "accent": "#22c55e",
+  "sections": [
+    {
+      "type": "text",
+      "content": "Welcome! 🎉 Every programmer on Earth started with this exact line. Python's **`print()`** function shows text on the screen.\n\nThink of `print()` as Python *saying* something out loud. Whatever you put inside the quotes is what it says."
+    },
+    {
+      "type": "example",
+      "label": "Hit Run and watch what happens 👇",
+      "code": "print('Hello, World!')"
+    },
+    {
+      "type": "text",
+      "content": "See that? The text inside the quotes showed up in the output box.\n\nThe quotes `' '` tell Python *“this is text”* (programmers call text a **string**). You can print anything you want!"
+    },
+    {
+      "type": "example",
+      "label": "Try this one too",
+      "code": "print('Python is awesome 🚀')\nprint('And I am learning it!')"
+    },
+    {
+      "type": "text",
+      "content": "💡 **Pro tip:** A line that starts with `#` is a **comment**. Python totally ignores it — it's a note for humans. Use them to leave yourself reminders."
+    },
+    {
+      "type": "challenge",
+      "prompt": "Your turn! Write a `print()` line that says **Hello, my name is** followed by a made-up name. For example: `Hello, my name is Alex!`",
+      "starter": "# Type your code below this line\n",
+      "hints": [
+        "Use the print() function — just like the examples above.",
+        "Put your message inside quotes, like print('your text here')."
+      ],
+      "check": {
+        "description": "Your program runs and prints a hello message with a made-up name in it.",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "named_greeting", "message": "Print 'Hello, my name is' followed by a made-up name" }
+        ]
+      },
+      "solution": "print('Hello, my name is Alex!')"
+    }
+  ]
+}

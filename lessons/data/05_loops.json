@@ -1,0 +1,60 @@
+{
+  "id": 5,
+  "title": "Going in Circles",
+  "subtitle": "Repeat without copy-pasting",
+  "emoji": "🔁",
+  "minutes": 7,
+  "xp": 90,
+  "accent": "#ec4899",
+  "sections": [
+    {
+      "type": "text",
+      "content": "Computers are *amazing* at doing boring things over and over. Instead of writing `print` 100 times, you use a **loop**. 🔁\n\nA **`for`** loop repeats a set number of times. The `range()` function counts for you."
+    },
+    {
+      "type": "example",
+      "label": "Run it — counts 0 to 4",
+      "code": "for i in range(5):\n    print(i)"
+    },
+    {
+      "type": "text",
+      "content": "`range(5)` gives the numbers **0, 1, 2, 3, 4** (it starts at 0 and stops *before* 5). The variable `i` holds the current number each time around.\n\nThe indented code is the **body** — it runs once per number."
+    },
+    {
+      "type": "example",
+      "label": "Loops + f-strings = power combo",
+      "code": "for num in range(1, 6):\n    print(f'{num} x 7 = {num * 7}')"
+    },
+    {
+      "type": "text",
+      "content": "💡 `range(1, 6)` starts at 1 and stops before 6 → gives 1,2,3,4,5.\n\nThere's also the **`while`** loop: it keeps going *as long as* a condition stays true. Great for countdowns!"
+    },
+    {
+      "type": "example",
+      "label": "A while-loop countdown 🚀",
+      "code": "count = 3\nwhile count > 0:\n    print(count)\n    count = count - 1\nprint('Lift off! 🚀')"
+    },
+    {
+      "type": "text",
+      "content": "⚠️ With `while`, **always** make sure the condition eventually becomes false (here `count` shrinks each time). Otherwise the loop runs forever! Don't worry — this app stops runaway loops after 5 seconds. 😉"
+    },
+    {
+      "type": "challenge",
+      "prompt": "Use a **`for` loop** to count **down** from 10 to 1, printing each number. Then print `'Blast off!'` at the end.\n\n*Trick:* `range(10, 0, -1)` counts down — the `-1` means step backwards.",
+      "starter": "# Loop from 10 down to 1, then blast off\n",
+      "hints": [
+        "Use: for i in range(10, 0, -1):",
+        "Inside the loop: print(i). After the loop (not indented): print('Blast off!')"
+      ],
+      "check": {
+        "description": "Count down from 10 to 1, then print 'Blast off!'.",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "syntax_feature", "feature": "for", "message": "Use a for loop" },
+          { "kind": "exact_lines", "values": ["10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "Blast off!"], "message": "Count down from 10 to 1, then print Blast off!" }
+        ]
+      },
+      "solution": "for i in range(10, 0, -1):\n    print(i)\nprint('Blast off!')"
+    }
+  ]
+}

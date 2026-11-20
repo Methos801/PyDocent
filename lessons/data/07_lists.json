@@ -1,0 +1,67 @@
+{
+  "id": 7,
+  "title": "Collections: Lists",
+  "subtitle": "Store many things in one place",
+  "emoji": "📋",
+  "minutes": 8,
+  "xp": 110,
+  "accent": "#10b981",
+  "sections": [
+    {
+      "type": "text",
+      "content": "What if you need to store *lots* of things — like every song in a playlist? You don't make 50 variables. You use a **list**! 📋\n\nA list holds many items in order, inside **square brackets** `[ ]`, separated by commas."
+    },
+    {
+      "type": "example",
+      "label": "Make a list and print it",
+      "code": "foods = ['pizza', 'tacos', 'sushi']\nprint(foods)\nprint('I have', len(foods), 'favorite foods')"
+    },
+    {
+      "type": "text",
+      "content": "`len()` tells you **how many** items are in the list.\n\nTo grab one item, use its **index** (position) in square brackets. ⚠️ Counting starts at **0**, not 1!"
+    },
+    {
+      "type": "example",
+      "label": "Indexing — counting starts at 0",
+      "code": "foods = ['pizza', 'tacos', 'sushi']\nprint(foods[0])\nprint(foods[1])\nprint(foods[2])"
+    },
+    {
+      "type": "text",
+      "content": "So `foods[0]` is the **first** item, `foods[1]` the second, and so on.\n\nLists can **grow**. Use **`.append()`** to add a new item onto the end:"
+    },
+    {
+      "type": "example",
+      "label": "Add to a list with .append()",
+      "code": "scores = [10, 25]\nscores.append(50)\nprint(scores)"
+    },
+    {
+      "type": "text",
+      "content": "And here's the magic combo — loop **over a list** with `for`. The loop variable becomes each item, one at a time. No index needed!"
+    },
+    {
+      "type": "example",
+      "label": "Loop through every item 🔁",
+      "code": "pets = ['dog', 'cat', 'hamster']\nfor pet in pets:\n    print('I love my', pet)"
+    },
+    {
+      "type": "challenge",
+      "prompt": "Make a list called **`hobbies`** with **3** hobbies you like. Then use a **`for` loop** to print each one on its own line.",
+      "starter": "# Make a list of 3 hobbies\n\n# Loop through it and print each hobby\n",
+      "hints": [
+        "Create the list like: hobbies = ['gaming', 'soccer', 'drawing']",
+        "Then loop: for hobby in hobbies: and inside (indented) print(hobby)"
+      ],
+      "check": {
+        "description": "A list called hobbies with 3 items, and a loop that prints each one.",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "probe", "expr": "hobbies", "type": "list", "message": "hobbies is a list (square brackets, items separated by commas)" },
+          { "kind": "probe", "expr": "len(hobbies)", "equals": 3, "message": "The list has exactly 3 hobbies" },
+          { "kind": "syntax_feature", "feature": "for_hobbies", "message": "Use a for loop over hobbies" },
+          { "kind": "printed_values", "expr": "hobbies", "separate_lines": true, "message": "Print each hobby on its own line" }
+        ]
+      },
+      "solution": "hobbies = ['gaming', 'soccer', 'drawing']\nfor hobby in hobbies:\n    print(hobby)"
+    }
+  ]
+}

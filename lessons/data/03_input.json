@@ -1,0 +1,56 @@
+{
+  "id": 3,
+  "title": "Talk Back",
+  "subtitle": "Make your program ask questions",
+  "emoji": "💬",
+  "minutes": 6,
+  "xp": 70,
+  "accent": "#f59e0b",
+  "sections": [
+    {
+      "type": "text",
+      "content": "So far your programs just *talk*. Now let's make them **listen**. 👂\n\nThe **`input()`** function pauses the program, waits for someone to type something, and hands it back to you."
+    },
+    {
+      "type": "example",
+      "label": "Type a made-up name in Program input, then run it!",
+      "code": "name = input('What is your character’s name? ')\nprint('Nice to meet you, ' + name)"
+    },
+    {
+      "type": "text",
+      "content": "What just happened:\n\n1. `input(...)` showed your question and waited\n2. Whatever you typed got stored in the `name` variable\n3. We glued (`+`) the text together and printed it\n\n💡 Gluing strings together with `+` is called **concatenation** (fancy word, simple idea)."
+    },
+    {
+      "type": "text",
+      "content": "There's an even cleaner way to mix text and variables: the **f-string**. Put an `f` before the quotes, then drop variables inside `{curly braces}`."
+    },
+    {
+      "type": "example",
+      "label": "f-strings are the pro way to do it",
+      "code": "name = input('Your name? ')\ncolor = input('Favorite color? ')\nprint(f'{name} loves the color {color}!')"
+    },
+    {
+      "type": "text",
+      "content": "⚠️ **Important:** `input()` always gives you a **string**, even if you type a number. To do math with it, wrap it in `int()`:\n\n`age = int(input('Age? '))`"
+    },
+    {
+      "type": "challenge",
+      "prompt": "Ask the user for their name using `input()`, store it in a variable, then print a friendly greeting that includes their name. Use an **f-string** if you can!",
+      "starter": "# Ask for their name, then greet them\n",
+      "hints": [
+        "First line: name = input('What is your character’s name? ')",
+        "Then: print(f'Hello, {name}! Welcome!')"
+      ],
+      "check": {
+        "description": "Ask for the user's name with input() and print a greeting that includes it.",
+        "stdin": "TutorTestName\n",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "syntax_feature", "feature": "input", "message": "Ask for the name using input()" },
+          { "kind": "input_scenario", "stdin": "RileyExample\n", "values": ["RileyExample"], "message": "Your greeting includes the name the user typed" }
+        ]
+      },
+      "solution": "name = input('What is your character’s name? ')\nprint(f'Hello, {name}! Welcome to Python!')"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🐍 PyDocent</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/codemirror.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dracula.min.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to lesson content</a>
+  <div class="aurora" aria-hidden="true">
+    <span class="a1"></span><span class="a2"></span><span class="a3"></span>
+  </div>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="brand">
+        <span class="brand-logo">🐍</span>
+        <div>
+          <div class="brand-title">PyDocent</div>
+          <div class="brand-sub">Learn by doing</div>
+        </div>
+      </div>
+
+      <div class="xp-block">
+        <div class="xp-row">
+          <span class="xp-label">Level <span id="level-num">1</span></span>
+          <span class="xp-value"><span id="xp-current">0</span> XP</span>
+        </div>
+        <div class="xp-bar"><div class="xp-fill" id="xp-fill"></div></div>
+        <div class="streak" id="streak">🔥 <span id="streak-num">0</span> lessons done</div>
+      </div>
+
+      <nav id="lesson-list" class="lesson-list" aria-label="Lessons"><!-- lessons injected --></nav>
+
+      <div class="sidebar-foot">
+        <button id="sound-btn" class="foot-btn" title="Toggle sound effects">🔊 Sound on</button>
+        <button id="erase-btn" class="foot-btn">Erase saved work</button>
+        <button id="reset-btn" class="foot-btn reset-btn" title="Start over">↺ Reset progress</button>
+        <button id="quit-btn" class="foot-btn quit-btn" title="Close the app">⏻ Quit</button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main id="main" tabindex="-1">
+      <section id="welcome" class="welcome">
+        <div class="welcome-card">
+          <div class="welcome-emoji">🐍</div>
+          <h1>Welcome to PyDocent!</h1>
+          <p>Pick a lesson on the left to start. You'll write real code and run it
+             instantly — no setup, no stress. Earn XP as you go! 🚀</p>
+          <button id="start-btn" class="big-btn">▶ Start Lesson 1</button>
+        </div>
+      </section>
+
+      <section id="lesson-view" class="lesson-view hidden">
+        <header class="lesson-header">
+          <div class="lesson-head-left">
+            <span class="lesson-emoji" id="lesson-emoji">📘</span>
+            <div>
+              <h1 id="lesson-title" tabindex="-1">Lesson</h1>
+              <p id="lesson-subtitle" class="lesson-subtitle"></p>
+            </div>
+          </div>
+          <span class="lesson-xp-badge" id="lesson-xp-badge">+50 XP</span>
+        </header>
+        <a class="jump-to-lab" href="#code-lab">Go to Code Lab ↓</a>
+
+        <div class="lesson-body">
+          <!-- Teaching content -->
+          <div class="content-col">
+            <div id="sections"><!-- sections injected --></div>
+          </div>
+
+          <!-- Code lab -->
+          <div class="lab-col" id="code-lab">
+            <div class="lab-card">
+              <div class="lab-head">
+                <span class="lab-title">⌨️ Code Lab</span>
+                <div class="lab-actions">
+                  <span class="save-status" id="save-status" role="status" aria-live="polite"></span>
+                  <button id="reset-code" class="ghost-btn" title="Reset editor" aria-label="Reset editor">↺</button>
+                  <button id="stop-btn" class="ghost-btn" hidden>■ Stop</button>
+                  <button id="run-btn" class="run-btn" title="Run code (Ctrl+Enter)">▶ Run</button>
+                </div>
+              </div>
+              <label class="editor-choice"><input type="checkbox" id="plain-mode" /> Use plain-text editor</label>
+              <textarea id="editor" aria-label="Python code editor"></textarea>
+              <textarea id="plain-editor" class="plain-editor hidden" aria-label="Python code editor" aria-describedby="editor-help" spellcheck="false"></textarea>
+              <p class="lab-help" id="editor-help">Run: Ctrl+Enter · Tab leaves the editor · Ctrl+] indents in the highlighted editor · Check my answer tests the challenge</p>
+
+              <div id="stdin-wrap" class="stdin-wrap hidden">
+                <label for="stdin">Program input <span class="muted">(if your program asks a question, type answers here — one per line)</span></label>
+                <textarea id="stdin" rows="2" placeholder="e.g. your name"></textarea>
+              </div>
+
+              <div class="output-head">
+                <span>Output</span>
+                <span id="run-status" class="run-status" role="status" aria-live="polite"></span>
+              </div>
+              <pre id="output" class="output" role="log" aria-label="Program output" aria-live="polite" tabindex="0"><span class="output-placeholder">▸ Click Run to see your code come alive.</span></pre>
+
+              <div id="challenge-bar" class="challenge-bar hidden">
+                <button id="hint-btn" class="hint-btn">💡 Hint</button>
+                <button id="solution-btn" class="solution-btn hidden">👀 Show solution</button>
+                <button id="check-btn" class="check-btn">✓ Check my answer</button>
+              </div>
+              <div id="hint-box" class="hint-box hidden" aria-live="polite"></div>
+            </div>
+
+            <div class="lesson-nav">
+              <button id="prev-btn" class="nav-btn ghost-btn">← Previous</button>
+              <button id="next-btn" class="nav-btn">Next lesson →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Achievement toast -->
+  <div id="toast" class="toast hidden">
+    <span class="toast-emoji">🏆</span>
+    <div class="toast-text">
+      <div class="toast-title">Lesson complete!</div>
+      <div class="toast-sub" id="toast-sub">+50 XP earned</div>
+    </div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- Shown after the user quits the app -->
+  <div id="closed-overlay" class="closed-overlay hidden">
+    <div class="closed-card">
+      <div class="closed-emoji">👋</div>
+      <h1 id="closed-heading" tabindex="-1">PyDocent closed</h1>
+      <p>Your progress is saved. You can close this browser tab now.</p>
+      <p class="muted">To start again, double-click <strong>PyDocent.exe</strong> any time.</p>
+    </div>
+  </div>
+
+  <meta name="tutor-token" content="{{ token }}">
+  <iframe id="execution-frame" title="Python execution" src="{{ runner_origin }}/frame.html"
+          sandbox="allow-scripts allow-same-origin" hidden></iframe>
+  <script src="{{ url_for('static', filename='js/codemirror.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/python.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

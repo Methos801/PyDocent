@@ -1,0 +1,58 @@
+{
+  "id": 8,
+  "title": "The Greeting Machine",
+  "subtitle": "Your first real program — a guided project",
+  "emoji": "🏆",
+  "minutes": 12,
+  "xp": 150,
+  "accent": "#ffd700",
+  "sections": [
+    {
+      "type": "text",
+      "content": "You've learned **print, variables, input, if/else, loops, functions, and lists**. 🎉\n\nNow it's your turn to put them ALL together and build a real program: a **Greeting Machine** that talks to the user and builds a personalized message."
+    },
+    {
+      "type": "text",
+      "content": "Here's your mission. Build a program that does these **four things**:\n\n1. **Ask** for the user's name with `input()`\n2. **Ask** for their favorite number with `input()`, then turn it into a number with `int()`\n3. **Define a function** called `cheer(name, number)` that **returns** a message like `Alex loves the number 7!` (an f-string is perfect here)\n4. **Print** the result of calling your function\n\nTake it one step at a time — run your code after each step to make sure it works. You've got this! 💪"
+    },
+    {
+      "type": "example",
+      "label": "Step 1 & 2 — ask two questions",
+      "code": "name = input('What is your character’s name? ')\nnumber = int(input('Favorite number? '))\nprint(name, number)"
+    },
+    {
+      "type": "example",
+      "label": "Step 3 — a function that returns a message",
+      "code": "def cheer(name, number):\n    return f'{name} loves the number {number}!'\n\nprint(cheer('Alex', 7))"
+    },
+    {
+      "type": "challenge",
+      "prompt": "Build the whole Greeting Machine in the lab! Ask for a name and a favorite number, define `cheer(name, number)` that returns a message, and print the result.\n\n*When you hit Check, we'll type a test name and number into your program to make sure it really works.*",
+      "starter": "# 1. Ask for the name\n\n# 2. Ask for the favorite number (turn it into a number!)\n\n# 3. Define cheer(name, number) that returns a message\n\n# 4. Print the result of cheer(...)\n",
+      "hints": [
+        "Start with: name = input('What is your character’s name? ')",
+        "Then: number = int(input('Favorite number? ')) — don't forget int()!",
+        "Define the function: def cheer(name, number): and on the next indented line: return f'{name} loves the number {number}!'",
+        "Finally, call it: print(cheer(name, number))"
+      ],
+      "check": {
+        "description": "Ask for a name and a favorite number, and print a message built by your cheer() function.",
+        "stdin": "TutorTestName\n7\n",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "syntax_feature", "feature": "input", "message": "Ask for information using input()" },
+          { "kind": "syntax_feature", "feature": "int", "message": "Turn the favorite number into an integer" },
+          { "kind": "input_scenario", "stdin": "RileyExample\n42\n", "values": ["RileyExample", "42"], "message": "Your output uses the name and number entered" },
+          { "kind": "function_scenario", "stdin": "RileyExample\n42\n", "expr": "cheer('RileyExample', 42)", "message": "Print the message returned by cheer()" },
+          { "kind": "probe", "expr": "cheer('Sam', 3)", "contains": ["Sam", "3"], "message": "cheer(name, number) returns a message that uses the name and the number" }
+        ]
+      },
+      "solution": "name = input('What is your character’s name? ')\nnumber = int(input('Favorite number? '))\n\ndef cheer(name, number):\n    return f'{name} loves the number {number}!'\n\nprint(cheer(name, number))"
+    },
+    {
+      "type": "extension",
+      "title": "Make it yours 🚀",
+      "content": "You finished the guided project — now break the rules on purpose and make it **yours**:\n\n• Ask a **third** question (favorite color, game, food…)\n• Add an **if/else**: if the number is bigger than 10, print an extra surprise line\n• Use a **loop** to print the name three times, like a cheer squad\n• Turn the whole thing into a function and call it twice\n\nThere's no Check button for this part — the only rule is: **run it and smile**. That's what real programming feels like. 🐍"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "id": 2,
+  "title": "Variables: Boxes for Data",
+  "subtitle": "Store and reuse information",
+  "emoji": "📦",
+  "minutes": 6,
+  "xp": 60,
+  "accent": "#00d4ff",
+  "sections": [
+    {
+      "type": "text",
+      "content": "A **variable** is like a labeled box where you store something so you can use it later. 📦\n\nYou create one with `=`. The name goes on the **left**, the value goes on the **right**."
+    },
+    {
+      "type": "example",
+      "label": "Run it — then change 'Alex' to a made-up name!",
+      "code": "name = 'Alex'\nage = 16\nprint(name)\nprint(age)"
+    },
+    {
+      "type": "text",
+      "content": "Notice two kinds of data:\n\n• **`'Alex'`** has quotes → it's a **string** (text)\n• **`16`** has no quotes → it's an **integer** (a whole number)\n\nNumbers don't need quotes. If you put quotes around a number, Python treats it as text, not math!"
+    },
+    {
+      "type": "example",
+      "label": "Python knows the difference — run this",
+      "code": "score = 100\nlevel = 'Beginner'\nprint(type(score))\nprint(type(level))"
+    },
+    {
+      "type": "text",
+      "content": "The **`type()`** function tells you what kind of data something is. `<class 'int'>` means integer, `<class 'str'>` means string.\n\n💡 You can also do math with number variables:"
+    },
+    {
+      "type": "example",
+      "label": "Math with variables",
+      "code": "apples = 5\noranges = 3\nprint(apples + oranges)"
+    },
+    {
+      "type": "challenge",
+      "prompt": "Create a variable called **`my_name`** with a made-up name, and a variable called **`my_age`** with a made-up age. Then **print both** of them.",
+      "starter": "# Make your two variables, then print each one\n",
+      "hints": [
+        "Set them like this: my_name = 'YourName' and my_age = 16",
+        "Then use print(my_name) and print(my_age) on separate lines."
+      ],
+      "check": {
+        "description": "Create my_name (text) and my_age (a whole number), then print both.",
+        "tests": [
+          { "kind": "no_error", "message": "Your program runs without errors" },
+          { "kind": "probe", "expr": "my_name", "type": "str", "message": "my_name holds text (a string)" },
+          { "kind": "probe", "expr": "my_age", "type": "int", "message": "my_age holds a whole number (an integer — no quotes!)" },
+          { "kind": "printed_values", "expr": "[my_name, my_age]", "message": "Print both a made-up name and a made-up age" }
+        ]
+      },
+      "solution": "my_name = 'Alex'\nmy_age = 16\nprint(my_name)\nprint(my_age)"
+    }
+  ]
+}
