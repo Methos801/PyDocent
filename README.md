@@ -8,6 +8,18 @@ PyDocent is a free, open-source project for beginners. Its eight short lessons g
 
 ![PyDocent lesson workspace showing the code editor, program output and challenge feedback](docs/lesson-preview.png)
 
+## How the feedback catches a shortcut
+
+In the conditionals lesson, the goal is to classify ages, not merely to print the answer for the number in the editor. Suppose the example starts at 16. Hard-coding “You are a minor” looks correct until the checker replaces the age and runs the program again.
+
+| Check | Hard-coded answer | Conditional answer |
+| --- | --- | --- |
+| Age 17 | Prints “You are a minor” | Prints “You are a minor” |
+| Age 18 | Still prints “You are a minor” | Prints “You are an adult” |
+
+The checker runs both sides of the boundary and accepts different valid ways to write the condition. A learner gets feedback about the behavior, not a demand to copy one solution. The example illustrates the check; PyDocent runs the learner’s code locally in a browser Worker.
+
+
 ## Try it locally
 
 Download or clone the source and open a terminal in the PyDocent folder. With Python 3.14 installed, run these commands on Windows:
